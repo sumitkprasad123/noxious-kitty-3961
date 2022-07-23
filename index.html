@@ -4,9 +4,354 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>Home</title>  
+    <style>
+      .top{
+        margin-top: 10px;
+        height: 80px;       
+        top:0px;
+        position:fixed;
+       }
+       .top>img{
+        margin-left:150px;
+        height:90px;        
+       }
+
+      #container{
+        margin:auto;
+        margin-top: 0px;
+        width:60%;
+        display:grid;
+        grid-template-columns: repeat(2,1fr);
+        gap:20px;
+      }
+      #container>product{
+        text-align:right;
+      }
+     #nav{
+      width:95%;
+     }
+    #nav>h2{
+      text-align:right;
+     }
+    </style>
 </head>
 <body>
-    <hi>Welcome to ZARA online mart</hi>
+  <div class="top ">
+    <img src="https://1000logos.net/wp-content/uploads/2017/05/Zara-log%D0%BE-640x269.png"/>
+</div>
+  <div id="nav">
+    <a href="./signup.html./">Signup</a>
+    <a href="./signin.html./">Signin</a>
+
+  </div>
+    <select id="filter">
+        <option value="">Select Catagory </option>
+        <option value="boy">boy</option>
+        <option value="girl">girl</option>
+        <option value="kid">kid</option>
+        <option value="man">man</option>
+        <option value="women">women</option>
+        <option value="beauty">beauty</option>
+    </select>
+    <div id="container"></div>
 </body>
 </html>
+<script>
+ product_data= [
+  {
+   
+    name: "DENIM SHIRT",
+    price: "3,995 FT",
+    size: "X,XX,XXL",
+    productID: "women1",
+   
+    img: "https://static.zara.net/photos///2022/I/0/3/p/8367/569/427/402/w/1239/8367569427_15_1_1.jpg?ts=1656489645487",
+  },
+  {
+   
+    name: "LINEN BLEND HOODED SHIRT",
+    price: "5,595 FT",
+    size: "X,M,L,XX,XXL",
+    productID: "women2",
+   
+    img: "https://static.zara.net/photos///2022/I/0/3/p/4333/557/712/2/w/449/4333557712_6_1_1.jpg?ts=1656503722158",
+  },
+  {
+   
+    name: "DENIM SHIRT",
+    price: "3,995 FT",
+    size: "M,L,XX,XXS",
+    productID: "women3",
+    
+    img: "https://static.zara.net/photos///contents/cm/media-transformations/joinlife-kids-ctx/joinlife-kids-large.svg?ts=1611920113833",
+  },
+  {
+  
+    name: "STRIPED LINEN BLEND SHIRT",
+    price: "4,595 FT",
+    size: "X,M,L,XXS,XXL",
+    productID: "women4",
+
+    img: "https://static.zara.net/photos///2022/I/0/3/p/6048/564/044/404/w/540/6048564044_1_1_1.jpg?ts=1654845896707",
+  },
+  {
+  
+    name: "STRIPED LINEN BLEND SHIRT",
+    price: "4,595 FT",
+    size: "X,M,L",
+    productID: "women5",
+ 
+    img: "https://static.zara.net/photos///2022/I/0/3/p/6048/564/044/2/w/383/6048564044_6_1_1.jpg?ts=1656431730903",
+  },
+  {
+  
+    name: "STRIPED SHIRT",
+    price: "4,595 FT",
+    size: "XXS,M,L",
+    productID: "women6",
+   
+    img: "https://static.zara.net/photos///2022/I/0/3/p/0630/550/620/2/w/383/0630550620_6_1_1.jpg?ts=1658218387595",
+  },
+  {
+ 
+    name: "WINDOWPANE CHECK SHIRT",
+    price: "4,595 FT",
+    size: "XXL,M,L",
+    productID: "women7",
+ 
+    img: "https://static.zara.net/photos///2022/I/0/3/p/6048/567/712/2/w/475/6048567712_6_1_1.jpg?ts=1657810977261",
+  },
+  {
+    
+    name: "FALSE PLAIN SHIRT",
+    price: "4,595 FT",
+    size: "X,M,L,XX",
+    productID: "women8",
+  
+    img: "https://static.zara.net/photos///2022/I/0/3/p/6048/551/400/402/w/540/6048551400_15_1_1.jpg?ts=1654788774073",
+  },
+  {
+ 
+    name: "FALSE PLAIN SHIRT",
+    price: "4,595 FT",
+    size: "XS,M,L,XX",
+    productID: "women9",
+   
+    img: "https://static.zara.net/photos///2022/I/0/3/p/6048/551/400/2/w/383/6048551400_6_1_1.jpg?ts=1653998634190",
+  },
+  {
+    
+    name: "FALSE PLAIN SHIRT",
+    price: "4,595 FT",
+    size: "X,L,XX",
+    productID: "women10",
+    
+    img: "https://static.zara.net/photos///2022/I/0/3/p/6048/550/712/2/w/383/6048550712_6_1_1.jpg?ts=1654851003850"
+  },
+  {
+   
+    name: "FEEL EXPLORER DENIM OVERSHIRT",
+    price: "5,595 FT",
+    size: "M,L,XXS",
+    productID: "women11",
+   
+    img: "https://static.zara.net/photos///contents/cm/media-transformations/joinlife-kids-ctx/joinlife-kids-large.svg?ts=1611920113833",
+  },
+  {
+  
+    name: "TWILL OVERSHIRT WITH HOOD",
+    price: "6,595 FT",
+    size: "S,M,L,XXl",
+    productID: "women12",
+   
+    img: "https://static.zara.net/photos///2022/I/0/3/p/8367/574/526/2/w/449/8367574526_6_1_1.jpg?ts=1656433004591",
+  },
+  {
+    
+    name: "FEEL EXPLORER DENIM OVERSHIRT",
+    price: "5,595 FT",
+    size: "S,X,L,XXl",
+    productID: "women13",
+   
+    img: "https://static.zara.net/photos///contents/cm/media-transformations/joinlife-kids-ctx/joinlife-kids-large.svg?ts=1611920113833",
+  },
+  {
+   
+    name: "FEEL EXPLORER DENIM OVERSHIRT",
+    price: "5,595 FT",
+    size: "S,M,X,XXL",
+    productID: "women14",
+
+    img: "https://static.zara.net/photos///contents/cm/media-transformations/joinlife-kids-ctx/joinlife-kids-large.svg?ts=1611920113833",
+  },
+  {
+  
+    name: "SPECKLED TEXTURED SHIRT",
+    price: "5,595 FT",
+    size: "S,M,X,XXL",
+    productID: "women15",
+  
+    img: "https://static.zara.net/photos///2022/I/0/3/p/6048/563/712/402/w/528/6048563712_1_1_1.jpg?ts=1654154306685",
+  },
+  {
+   
+    name: "SPECKLED TEXTURED SHIRT",
+    price: "5,595 FT",
+    size: "S,M,L,XXL",
+    productID: "women16",
+    
+    img: "https://static.zara.net/photos///2022/I/0/3/p/6048/563/712/2/w/528/6048563712_6_1_1.jpg?ts=1652370563860",
+  },
+  {
+    
+    name: "STRIPED TEXTURED HOODED SHIRT",
+    price: "5,595 FT",
+    size: "S,XX",
+    productID: "women17",
+ 
+    img: "https://static.zara.net/photos///2022/I/0/3/p/6048/554/712/402/w/528/6048554712_1_1_1.jpg?ts=1654154306985",
+  },
+  {
+    brand: "Gap",
+    name: "STRIPED TEXTURED HOODED SHIRT",
+    price: "5,595 FT",
+    size: "S,M,XX,XXL",
+    productID: "women18",
+    catagory: "formal",
+    img: "https://static.zara.net/photos///2022/I/0/3/p/6048/554/712/2/w/528/6048554712_6_1_1.jpg?ts=1654180596305",
+  },
+  {
+   
+    name: "TEXTURED STRIPED TOP",
+    price: "5,595 FT",
+    size: "M,XXL,XX",
+    productID: "women19",
+   
+    img: "https://static.zara.net/photos///2022/I/0/3/p/7545/531/712/402/w/540/7545531712_1_1_1.jpg?ts=1654154307653",
+  },
+  {
+   
+    name: "TEXTURED STRIPED TOP",
+    price: "5,595 FT",
+    size: "M,X,L,XXL",
+    productID: "women20",
+   
+    img: "https://static.zara.net/photos///2022/I/0/3/p/6048/566/712/402/w/540/6048566712_1_1_1.jpg?ts=1654154307042",
+  },
+  {
+   
+    name: "TEXTURED STRIPED TOP",
+    price: "5,595 FT",
+    size: "M,L,XXL",
+    productID: "women21",
+    
+    img: "https://static.zara.net/photos///2022/I/0/3/p/7545/531/712/2/w/292/7545531712_6_1_1.jpg?ts=1653490628926",
+  },
+  {
+   
+    name: "SMOOTH TEXTURE SHIRT",
+    price: "5,595 FT",
+    size: "S,XX",
+    productID: "women22",
+  
+    img: "https://static.zara.net/photos///2022/I/0/3/p/6048/566/712/2/w/292/6048566712_6_1_1.jpg?ts=1652357574037",
+  },
+  {
+  
+    name: "STRIPED LINEN BLEND SHIRT",
+    price: "5,595 FT",
+    size: "XXL",
+    productID: "women23",
+   
+    img: "https://static.zara.net/photos///2022/I/0/3/p/6048/555/512/402/w/449/6048555512_15_1_1.jpg?ts=1654788773625"
+  },
+  {
+   
+    name: "STRIPED LINEN BLEND SHIRT",
+    price: "5,595 FT",
+    size: "S,X,L",
+    productID: "women24",
+   
+    img: "https://static.zara.net/photos///2022/I/0/3/p/6048/557/402/2/w/449/6048557402_6_1_1.jpg?ts=1654524414017",
+  },
+  {
+   
+    name: "FALSE PLAIN LINEN BLEND SHIRT",
+    price: "4,595 FT",
+    size: "S,XXL,XX",
+    productID: "women25",
+    
+    img: "https://static.zara.net/photos///2022/I/0/3/p/6048/555/512/2/w/475/6048555512_6_1_1.jpg?ts=1654852446253",
+  },
+];
+</script>
+<script>
+
+   let container = document.querySelector("#container");
+   let filter=document.getElementById("filter");
+   let cartLS=JSON.parse(localStorage.getItem("cart-page")) || [] ;
+
+   function Display(data){
+    container.innerHTML=null;
+
+    data.forEach(function(ele){
+        let product=document.createElement("div");
+       
+        let img=document.createElement("img");
+        img.setAttribute("src",ele.img );
+        img.style.width="100%"
+ 
+        let name=document.createElement("h3");
+        name.innerText=ele.name;
+
+        let price=document.createElement("h2");
+        price.innerText=ele.price;
+        
+
+    
+        let cart=document.createElement("button");
+        cart.innerText="Add to Cart";
+        cart.addEventListener("click",function(){
+            AddToCart(ele);
+        })
+
+        container.append(product);
+        product.append(img,name,price,cart);
+    })
+   }
+   Display(product_data);
+  
+  
+
+   function AddToCart(product){
+   let iscartAdded=false;
+    for(let i=0;i<cartLS.length;i++){
+        if(cartLS[i].productID===product.productID){
+            alert("Product already in the cart");
+            iscartAdded=true;
+            break;
+        }
+    }
+    if(iscartAdded===false){
+    cartLS.push(product);
+    alert("Product Added Successfully");
+    localStorage.setItem("cart-page",JSON.stringify(cartLS))
+    }
+   }
+</script>
+<script>
+let signinLS=JSON.parse(localStorage.getItem("signin"));
+
+let nav=document.querySelector("#nav");
+if(signinLS !=null){
+  nav.innerHTML=null;
+  let username=document.createElement("h2");
+  username.innerText=signinLS.name;
+
+  let cartBTN=document.createElement("a");
+  cartBTN.setAttribute("href","cart.html");
+  cartBTN.innerText="CART"
+  nav.append(username, cartBTN);
+}
+</script>
