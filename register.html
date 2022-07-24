@@ -6,85 +6,160 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>sign up page</title>
     <style>
-        /* #top{
-        border:1px solid blue;
-             height:10px;
-             width:15px;
-             margin-bottom: 100px; 
-       } */
+       
+       #logo{
+        margin:30px -30px 50px 20px;
+        height:35px;
+        width:40px;
+       }
+      
        img{
            height:10%;
            width:15%;
            margin-left:100px;
        }
-       form{
-        display:grid;
-        position:relative;
-        left:100px;
-        top:100px;
-       
+     
+       #help{
+        position:fixed;
+        top:50px;
+        left:1400px;
        }
-       
-       form>input{
-        height:60px;
-        width:30%;
-        margin-bottom:20px;
-        /* background: transparent; */
-        border: none;
-        border-bottom: 1px solid #000000;
-        
+      a{
+        position:fixed;
+        top:50px;
+        left:1100px;
+      }
+      #login{
+        position:fixed;
+        top:50px;
+        left:1300px;
+      }
+      
+      #container{
+        display:flex;
+        margin-top: 80px;
+        margin-left: 100px;
+        height:auto;
+        width:90%;
+        gap:60px;
+        /* border: 1px solid red; */
        }
+      
+       #container>.box{
+        /* border: 1px solid black; */
+        width:35%;
+        margin-bottom: 50px;
+       }
+
+       .box>div:nth-child(1)>form>{
+        width:40%;
+        margin-left:50px;
+       }
+            
+      .box>form>input{
+        height:35px;
+         width:90%;
+         margin-bottom:20px;
+         border: none;
+         border-bottom: 1px solid #000000;
+       }
+
+       p{
+        margin-top:30px;
+       }
+     
        #sub{
          height:35px;
-         width:30%;
+         width:90%;
          color: white;
          background-color: black;  
        }
-       P{
-        font-size:10px;
-        margin-bottom: 60px;;
-       }
        #middle{
-        width:30%;
-        font-size: 11px;
+        width:90%;
+        font-size: 13px;
         margin-bottom:60px;
+       }
+
+       h2{
+        margin-bottom:50px;
+       }
+
+
+       .box1>div>input{
+        height:35px;
+         width:90%;
+         margin-bottom: 15px;
+         border: none;
+         border-bottom: 1px solid #000000;
+       }
+       .box1>div{
+        margin-top:150px;
+        width:150%;
        }
     </style>
 </head>
 <body>
     <div id="top ">
+        <img id="logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrTYCvyAx6wmgEbYVSwL0eVJbt7DO2KaqTmg&usqp=CAU">
         <img src="https://1000logos.net/wp-content/uploads/2017/05/Zara-log%D0%BE-640x269.png"/>
-    </div>
-    <!-- <h1>This is my project page</h1> -->
-    <form>
+   </div>
+        <a id="help">HELP</a>
+        <a>SEARCH</a>
+        <a id="login">LOG IN</a>
+    
+   <div id="container">
+
+     <div class="box">
+      <form>
         <h2>PERSONAL DETAILS</h2>
         
-        <input type="email" id="email" placeholder="E-Mail">
-        <input type="password" id="pass" placeholder="password">
+        <input type="email" id="email" placeholder="E-MAIL">
+        <input type="password" id="pass" placeholder="PASSWORD">
         <input type="text" id="name" placeholder="NAME">
         <div id="middle">
-            <input type="checkbox">
-            <label> I WANT TO RECEIVE PERSONALISED COMMERCIAL COMMUNICATIONS FROM ZARA BY EMAIL.</label><br><br>
+
+            <input type="checkbox" >
+            <label > I WANT TO RECEIVE PERSONALISED COMMERCIAL COMMUNICATIONS FROM ZARA BY EMAIL.</label><br><br>
+              
             <input type="checkbox">
             <label>I HAVE READ AND UNDERSTAND THE PRIVACY AND COOKIES POLICY.</label><br>
+
         </div>
         <input type="Submit" value="CREAT ACCOUNT" id="sub" >
     </form>
+   </div>
+   <div class="box1">
+      <div>
+        <input type="password" id="repass" placeholder=" REPEAT  PASSWORD">
+        <input type="text" id="surname" placeholder="SURNAME">
+      </div>
+   </div>  
+</div>
 </body>
+</html>
+
 <script>
  let form =document.querySelector("form"); 
  let signupLS=JSON.parse(localStorage.getItem("signup"))||[];
 
  form.addEventListener("submit",function(event){
     event.preventDefault();
+    
     let obj={
         "name":form.name.value,
         "email":form.email.value,
         "password":form.pass.value,
+        "repass":document.querySelector("#repass").value,
+        "surname":document.querySelector("#surname").value,
+
     }
-    if(obj.name=="" || obj.email=="" || obj.passward==""){
+    if(obj.name=="" || obj.surname=="" || obj.email=="" || obj.passward=="" ){
         alert("Field Empty");
-    }else{
+    }
+   else if(obj.password!==obj.repass){
+        alert("password not match")
+    }
+    else{
     signupLS.push(obj);
     localStorage.setItem("signup",JSON.stringify(signupLS));
        alert("signup successful");
@@ -92,7 +167,18 @@
     }
  });
 
-
-
 </script>
 </html>
+<script>
+    let login=document.querySelector("#login").addEventListener("click",myFun);
+
+      function myFun(){
+       window.location.href="login.html";
+   }
+
+   let help=document.querySelector("#help").addEventListener("click",myFunc);
+
+     function myFunc(){
+      window.location.href="help.html";
+   }
+</script>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         #logo{
+        margin:20px -20px 60px 20px;
+        height:35px;
+        width:40px;
+       }
+      
+       img{
+           height:10%;
+           width:15%;
+           margin-left:180px;
+       }
+     
+       #help{
+        position:fixed;
+        top:50px;
+        left:1400px;
+       }
+      a{
+        position:fixed;
+        top:50px;
+        left:1100px;
+      }
+      #login{
+        position:fixed;
+        top:50px;
+        left:1300px;
+      }
+      #container{
+        display:flex;
+        flex-wrap:wrap;
+        align-content: space-around;
+        width:75%;
+        margin:auto;
+        gap:50px;
+        margin-top: 100px;
+      }
+      #container>div{
+        /* border:1px solid red; */
+        height:auto;
+        width:11%
+        
+      }
+      #container>div>img{
+        margin:auto;
+        height:40px;
+        width:100%;
+
+      }
+      p{
+        text-align:center;
+        font:bold;
+        font-size:10px;
+      }
+      h3{
+        margin-left: 220px;
+        margin-top: 100px;
+      }
+    </style>
+</head>
+<body>
+    <div id="top ">
+        <img id="logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrTYCvyAx6wmgEbYVSwL0eVJbt7DO2KaqTmg&usqp=CAU">
+       <img src="https://1000logos.net/wp-content/uploads/2017/05/Zara-log%D0%BE-640x269.png"/>
+   </div>
+   <a id="help">HELP</a>
+   <a>SEARCH</a>
+   <a id="login">LOG IN</a>
+    <h3>HELP</h3>
+    
+    <div id="container">
+        <div>
+            <img src="https://static.zara.net/photos///contents/mkt/misc/help/icons//icon-80-help-bag.svg?ts=1550654368093">
+            <p>SHOP AT ZARA.COM</p>
+        </div>
+        <div>
+            <img src="https://static.zara.net/photos///contents/mkt/misc/help/icons//icon-80-help-shipping.svg?ts=1550654368093">
+            <p>SHIPPING AND ORDER STATUS</p>
+        </div>
+        <div>
+            <img src="https://static.zara.net/photos///contents/mkt/misc/help/icons//icon-80-help-returns.svg?ts=1550654368093">
+            <p>EXCHANGES AND RETURNS</p>
+        </div>
+        <div>
+            <img src="https://static.zara.net/photos///contents/mkt/misc/help/icons//icon-80-help-payment.svg?ts=1550654368093">
+            <p>PAYMENT</p>
+        </div>
+        <div>
+            <img src="https://static.zara.net/photos///contents/mkt/misc/help/icons//icon-80-help-product.svg?ts=1550654368093">
+            <p>PRODUCT</p>
+        </div>
+        <div>
+            <img src="https://static.zara.net/photos///contents/mkt/misc/help/icons//icon-80-help-gift-card.svg?ts=1591250800807">
+            <p>GIFT CARD</p>
+        </div>
+        <div>
+            <img src="https://static.zara.net/photos///contents/mkt/misc/help/icons//icon-80-help-gift-options.svg?ts=1550654368093">
+            <p>GIFT OPTIONS</p>
+        </div>
+        <div>
+            <img src="https://static.zara.net/photos///contents/mkt/misc/help/icons//icon-80-help-stores-and-company.svg?ts=1550654368093">
+            <p>SHOPS AND COMPANY</p>
+        </div>
+        <div>
+            <img src="https://static.zara.net/photos///contents/mkt/misc/help/icons//icon-80-help-clothes-collection-info.svg?ts=1614071652367">
+            <p>CLOTHES COLLECTION PROGRAMME</p>
+        </div>
+          
+    </div>
+</body>
+</html>
+<script>
+     let login=document.querySelector("#login").addEventListener("click",myFun);
+
+       function myFun(){
+        window.location.href="login.html";
+    }
+
+    let help=document.querySelector("#help").addEventListener("click",myFunc);
+
+      function myFunc(){
+       window.location.href="help.html";
+    }
+</script>
