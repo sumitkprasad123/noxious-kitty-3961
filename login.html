@@ -6,60 +6,110 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>sign up page</title>
     <style>
-        /* #top{
-        border:1px solid blue;
-             height:10px;
-             width:15px;
-             margin-bottom: 100px; 
-       } */
+        #logo{
+        margin:30px -30px 50px 20px;
+        height:35px;
+        width:40px;
+       }
+      
        img{
            height:10%;
            width:15%;
            margin-left:100px;
        }
-       form{
-        display:grid;
-        position:relative;
-        left:100px;
-        top:100px;
-       
+     
+       #help{
+        position:fixed;
+        top:50px;
+        left:1400px;
        }
-       
-       form>input{
-        height:60px;
-        width:20%;
-        margin-bottom:20px;
-        /* background: transparent; */
-        border: none;
-        border-bottom: 1px solid #000000;
-        
+      a{
+        position:fixed;
+        top:50px;
+        left:1200px;
+      }
+       #container{
+        margin-top: 150px;
+        margin-left: 30px;
+        display:flex;
+        justify-content: space-around;
        }
+
+       .box>div:nth-child(1)>form>{
+        width:100%;
+        margin-left:50px;
+       }
+      
+       input{
+        height:35px;
+         width:90%;
+         margin-bottom:20px;
+         border: none;
+         border-bottom: 1px solid #000000;
+       }
+
+       p{
+        margin-top:30px;
+       }
+
        #sub{
          height:35px;
-         width:20%;
+         width:90%;
          color: white;
          background-color: black;  
        }
-       P{
-        font-size:10px;
-        margin-bottom: 60px;;
+
+
+       .box:nth-child(2){
+        height:auto;
+        width:25%;
+      }
+       button{
+         height:35px;
+         margin-top: 70px;;
+         width:80%;
+         color: white;
+         background-color: black; 
        }
+       .box{
+        /* border:1px solid red; */
+        height:auto;
+        width:20%;
+       }
+
+      
     </style>
 </head>
 <body>
     <div id="top ">
+         <img id="logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrTYCvyAx6wmgEbYVSwL0eVJbt7DO2KaqTmg&usqp=CAU">
         <img src="https://1000logos.net/wp-content/uploads/2017/05/Zara-log%D0%BE-640x269.png"/>
     </div>
-    <!-- <h1>This is my project page</h1> -->
-    <form>
-        <h2>LOG IN</h2>
-        
-        <input type="email" id="email" placeholder="E-Mail">
-        <input type="password" id="pass" placeholder="password">
-        <p>HAVE YOU FORGOTTEN YOUR PASSWORD?</p>
-        <input type="Submit" value="LOG IN" id="sub" >
-    </form>
+    <a id="help">HELP</a>
+     <a>SEARCH</a>
+  <div id="container">
+     <div class="box"> 
+        <form>
+            <h2>LOG IN</h2>
+            
+            <input type="email" id="email" placeholder="E-Mail">
+            <input type="password" id="pass" placeholder="password">
+            <h6>HAVE YOU FORGOTTEN YOUR PASSWORD?</h6>
+            <input type="Submit" value="LOG IN" id="sub" >
+            
+        </form>    
+     </div>
+    <div class="box">
+        <h2>RIGESTER</h2>
+        <h6>IF YOU STILL DON'T HAVE A ZARA.COM ACCOUNT, USE THIS OPTION TO ACCESS THE REGISTRATION FORM.</h6>
+        <h6>BY GIVING US YOUR DETAILS, PURCHASING IN ZARA.COM WILL BE FASTER AND AN ENJOYABLE EXPERIENCE.</h6>
+        <button>CREATE ACCOUNT</button>
+    </div>
+    <div class="box"></div>
+  </div>
 </body>
+
+
 <script>
     let form = document.querySelector("form");
     let signupLS = JSON.parse(localStorage.getItem("signup"))||[];
@@ -89,4 +139,21 @@
         }
     })
 </script>
+<script>
+    let button=document.querySelector("button").addEventListener("click",myFunc);
+    let help=document.querySelector("#help").addEventListener("click",myFun);
+
+    function myFunc(){
+        window.location.href="register.html";
+    }
+
+    function myFun(){
+        window.location.href="help.html";
+    }
+</script>
 </html>
+
+
+
+
+

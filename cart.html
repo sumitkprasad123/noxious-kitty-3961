@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Page</title>
+    <style>
+
+     .top{
+        margin-top: -120px;;
+      }
+
+     #logo1{
+        margin:30px -30px 50px 20px;
+        height:35px;
+        width:40px;
+        position: fixed;
+       
+       }
+      
+      #logo2{
+           height:13%;
+           width:15%;
+           margin-left:150px;
+           position: fixed;
+       }
+     
+       #help{
+        position:fixed;
+        top:30px;
+        left:1400px;
+       
+       }
+      .search{
+        position:fixed;
+        top:30px;
+        left:1100px;
+      }
+      
+      #container{
+        margin:auto;
+        margin-top: 130px;
+        width:65%;
+        display:grid; 
+        grid-template-columns: repeat(3,1fr);
+        grid-column-gap: 80px;
+      }
+      #container>div{
+        /* border:1px solid red; */
+        width:100%;
+        height:90%;
+      }
+      #container>div>img{
+        width:80%;
+        height: 75%;
+      }
+      #container>div>h5{
+        position: relative;
+        left:85%;
+        top:-50%;
+        color:gray;
+      }
+      #container>div>button{
+        position: relative;
+        left:82%;
+        top:-23%;
+        border:none;
+        color:gray;
+        background-color: white;
+    }
+      .nav{
+      width:95%;
+    
+     }
+      .nav{
+        position:fixed;
+        top:10px;
+        left:1300px;
+     }
+
+     #bottom{
+        height:100px;
+        width:100%;
+        /* border:1px solid red; */
+        top:85%;
+        position:fixed;
+     }
+     #bottom>:nth-child(2){
+        display: flex;
+        position:relative;
+        left:75%;
+        top:-70%;
+        gap:40px;
+     }
+    #but{
+        background-color: black;
+        color:white;
+        height:40px;
+        padding: 0px 70px 0px 70px;
+        position:relative;
+        top:10px;
+    }
+    #gift{
+        margin-left: 150px;
+    }
+    #gift>h6{
+        margin-top: -14px;
+    }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="top ">
+        <img id="logo1" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrTYCvyAx6wmgEbYVSwL0eVJbt7DO2KaqTmg&usqp=CAU">
+        <img id="logo2" src="https://1000logos.net/wp-content/uploads/2017/05/Zara-log%D0%BE-640x269.png"/>
+    </div>
+    <a id="help">HELP</a>
+    <a class="search">SEARCH</a>
+    
+    <div class="nav">
+        <a href="./signup.html./">Signup</a>
+        <a href="./signin.html./">Signin</a>
+    
+      </div>
+
+    
+    <div id="container"></div>
+    <div id="bottom">
+        <div id="gift">
+            <h5>IS YOUR ORDER A GIFT?</h5>
+            <h6>GIFT RAPPING</h6>
+        </div>
+        <div>
+            
+            <H5>TOTAL - <span id="total-price">0</span></H5>
+            <button id="but">CONTINUE</button>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+
+let container = document.querySelector("#container");
+  
+let cartLS=JSON.parse(localStorage.getItem("cart-page")) || [] ;
+let totalPrice=document.querySelector("#total-price");
+
+function Display(data){
+    container.innerHTML=null;
+    let total=0;
+    data.forEach(function(ele,index){
+        total+=Number(ele.price);
+        console.log(ele.price)
+        let product=document.createElement("div");
+
+        let img=document.createElement("img");
+        img.setAttribute("src",ele.img );
+ 
+       
+        let price=document.createElement("h5");
+        price.innerText=ele.price;
+
+     
+
+        let deleteBtn=document.createElement("button");
+        deleteBtn.innerText="delete ";
+        deleteBtn.addEventListener("click",function(){
+            DeleteCart(index);
+        })
+
+        container.append(product);
+        product.append(img,price,deleteBtn);
+    });
+      totalPrice.innerText=total;
+}
+   Display(cartLS);
+
+function DeleteCart(index){
+    let deletedCart=cartLS.filter(function(el,i){
+        return i != index; 
+    })
+    Display(deletedCart);
+
+    localStorage.setItem("cart-page",JSON.stringify(deletedCart))
+}
+</script>
+
+<script>
+    let signinLS=JSON.parse(localStorage.getItem("signin"));
+    
+    let nav=document.querySelector(".nav");
+    if(signinLS !=null){
+      nav.innerHTML=null;
+      let username=document.createElement("h3");
+      username.innerText=signinLS.name;
+    
+      nav.append(username);
+    }
+    
+    </script>
+    
+    <script>
+        let help=document.querySelector("#help").addEventListener("click",myFun);
+      
+           function myFun(){
+           window.location.href="help.html";
+      }
+      </script>
+      
